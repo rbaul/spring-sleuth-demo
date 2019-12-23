@@ -1,7 +1,7 @@
-package com.spring.sleuth.demo.server2_sb2.web;
+package com.spring.sleuth.demo.server3_sb1.web;
 
-import com.spring.sleuth.demo.server2_sb2.services.AsyncServiceImpl;
-import com.spring.sleuth.demo.server2_sb2.services.Service2ServiceImpl;
+import com.spring.sleuth.demo.server3_sb1.services.AsyncServiceImpl;
+import com.spring.sleuth.demo.server3_sb1.services.ServiceServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api("Service 1 - Spring Boot 2")
+@Api("Service 3 - Spring Boot 1")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/service1")
-public class Service2Controller {
+@RequestMapping("api/service3")
+public class ServiceController {
 
-    private final Service2ServiceImpl service1Service;
+    private final ServiceServiceImpl service1Service;
 
     private final AsyncServiceImpl asyncService;
 
-    @ApiOperation("Simple flow request - only service 1")
+    @ApiOperation("Simple flow request - only service 3")
     @GetMapping("simple")
     public void simpleFlowRequest() {
-        log.info("Simple flow request - only service 1");
+        log.info("Simple flow request - only service 3");
     }
 
-    @ApiOperation("Simple async flow request - only service 1")
+    @ApiOperation("Simple async flow request - only service 3")
     @GetMapping("simple/async")
     public void simpleAsyncFlowRequest() {
-        log.info("Simple async flow request - only service 1");
+        log.info("Simple async flow request - only service 3");
         asyncService.asyncLocal();
     }
 

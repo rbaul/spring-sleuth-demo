@@ -1,6 +1,6 @@
 package com.spring.sleuth.demo.server1_sb2.config;
 
-import com.spring.sleuth.demo.server1_sb2.web.Service1Controller;
+import com.spring.sleuth.demo.server1_sb2.web.ServiceController;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class SwaggerConfig {
                 .groupName("Service 1")
                 .enable(true)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(Service1Controller.class.getPackage().getName()))
+                .apis(RequestHandlerSelectors.basePackage(ServiceController.class.getPackage().getName()))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo());

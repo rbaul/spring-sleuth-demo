@@ -10,5 +10,7 @@ server:
 #  send_reatempt: 50
 
 logging:
+  pattern:
+    level: '%5p [${spring.application.name},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}]'
   level:
     root: info

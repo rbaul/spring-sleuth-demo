@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class Service1ServiceImpl {
+public class ServiceServiceImpl {
     
     private final RestTemplateCustom restTemplateCustom;
 
     public void service2FlowRequest() {
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/service1/simple", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/service2/simple", Void.class);
         log.info("Message");
     }
 
     public void service3FlowRequest() {
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/service1/simple/async", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/service3/simple", Void.class);
         log.info("Message");
     }
 

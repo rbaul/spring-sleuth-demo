@@ -5,5 +5,5 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableAsync
 @Configuration
-public class Server2Config {
+public class ServerConfig {
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AsyncServiceImpl {
 
-    private final Service2ServiceImpl service1Service;
+    private final ServiceServiceImpl service1Service;
 
     @Async
     public void asyncLocal() {

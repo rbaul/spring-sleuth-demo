@@ -1,4 +1,4 @@
-package com.spring.sleuth.demo.server1_sb2.services;
+package com.spring.sleuth.demo.server3_sb1.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
-package com.spring.sleuth.demo.server2_sb2.config;
+package com.spring.sleuth.demo.server3_sb1.config;
 
-import com.spring.sleuth.demo.server2_sb2.web.ServiceController;
+import com.spring.sleuth.demo.server3_sb1.web.ServiceController;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,13 +16,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    @Value("${application.title:Service 2 (Spring Boot 2)}")
+    @Value("${application.title:Service 3 (Spring Boot 1)}")
     private String title;
 
     @Bean
     public Docket getSecureDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("Service 2")
+                .groupName("Service 3")
                 .enable(true)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(ServiceController.class.getPackage().getName()))
