@@ -1,0 +1,16 @@
+spring:
+
+server:
+  context-path: /
+  port: 8080
+
+#kafka:
+#  enabled: false
+#  address: ${service.kafka.url}
+#  send_reatempt: 50
+
+logging:
+  level:
+    root: info
+    com.ecitele.mercury.hostmanager: debug
+    org.springframework.data.mongodb.core.MongoTempla: debug
