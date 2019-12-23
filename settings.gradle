@@ -1,0 +1,6 @@
+rootProject.name = 'spring-sleuth-demo'
+
+include 'server1-sb2'
+include 'server2-sb2'
+include 'server3-sb1'
+include 'server4-zipkin'
