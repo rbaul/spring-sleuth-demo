@@ -1,6 +1,7 @@
 package com.spring.sleuth.demo.server1_sb2.services;
 
 import com.spring.sleuth.demo.server1_sb2.config.custom.RestTemplateCustom;
+import com.spring.sleuth.demo.server1_sb2.services.kafka.producers.ServerMessagePublisher;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 public class ServiceServiceImpl {
     
     private final RestTemplateCustom restTemplateCustom;
+
+    private final ServerMessagePublisher serverMessagePublisher;
 
     public void service2FlowRequest() {
         restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/service2/simple", Void.class);
@@ -23,5 +26,7 @@ public class ServiceServiceImpl {
     }
 
     public void serviceKafkaFlowRequest() {
+        log.info("Publish to Kafka...");
+        serverMessagePublisher.publish("String Object");
     }
 }

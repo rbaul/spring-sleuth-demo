@@ -1,0 +1,20 @@
+kafka:
+  bootstrap:
+    servers: http://172.21.185.30:9092
+  topics:
+     server2:
+       some-topic: "server2-some-topic"
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 172.21.185.30
+          headers:
+            - X-B3-TraceId
+            - X-B3-SpanId
+            - X-B3-Sampled
+            - X-B3-ParentSpanId
+            - X-Span-Name
+            - X-Span-Export

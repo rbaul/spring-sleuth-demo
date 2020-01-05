@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    include: kafka-config
 
 server:
   context-path: /
