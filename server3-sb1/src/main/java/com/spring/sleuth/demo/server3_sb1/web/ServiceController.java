@@ -35,6 +35,20 @@ public class ServiceController {
     }
 
     @ApiOperation("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)")
+    @GetMapping("service1")
+    public void service1FlowRequest() {
+        log.info("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)");
+        service1Service.service1FlowRequest();
+    }
+
+    @ApiOperation("Micro-Service REST flow async request - REST to service 2 (Spring Boot 2)")
+    @GetMapping("service1/async")
+    public void service1AsyncFlowRequest() {
+        log.info("Micro-Service REST flow async request - REST to service 2 (Spring Boot 2)");
+        asyncService.asyncServer1();
+    }
+
+    @ApiOperation("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)")
     @GetMapping("service2")
     public void service2FlowRequest() {
         log.info("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)");
@@ -46,20 +60,6 @@ public class ServiceController {
     public void service2AsyncFlowRequest() {
         log.info("Micro-Service REST flow async request - REST to service 2 (Spring Boot 2)");
         asyncService.asyncServer2();
-    }
-
-    @ApiOperation("Micro-Service REST flow request - REST to service 3 (Spring Boot 1)")
-    @GetMapping("service3")
-    public void service3FlowRequest() {
-        log.info("Micro-Service REST flow request - REST to service 3 (Spring Boot 1)");
-        service1Service.service3FlowRequest();
-    }
-
-    @ApiOperation("Micro-Service REST flow async request - REST to service 3 (Spring Boot 1)")
-    @GetMapping("service3/async")
-    public void service3AsyncFlowRequest() {
-        log.info("Micro-Service REST flow async request - REST to service 3 (Spring Boot 1)");
-        asyncService.asyncServer3();
     }
 
     @ApiOperation("Micro-Service Kafka flow to all services")

@@ -17,18 +17,19 @@ public class ServiceServiceImpl {
 
     private final RestTemplateCustom restTemplateCustom;
 
-    public void service2FlowRequest() {
+    public void service1FlowRequest() {
+        log.info("Message to Server 1");
         restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8080/api/service1/simple", Void.class);
-        log.info("Message");
     }
 
     public void service3FlowRequest() {
-
+        log.info("Message to Server 3");
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/service1/simple", Void.class);
     }
 
     public void serviceKafkaFlowRequest() {
         log.info("Publish to Kafka...");
-        Message<String> message = MessageBuilder.withPayload("String Object").build();
+        Message<String> message = MessageBuilder.withPayload("String Object from Server 2").build();
         serverStreamBinder.someTopicOutput().send(message);
     }
 }

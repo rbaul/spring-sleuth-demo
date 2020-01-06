@@ -21,31 +21,31 @@ public class ServiceController {
 
     private final AsyncServiceImpl asyncService;
 
-    @ApiOperation("Simple flow request - only service 1")
+    @ApiOperation("Simple flow request - only service 2")
     @GetMapping("simple")
     public void simpleFlowRequest() {
-        log.info("Simple flow request - only service 1");
+        log.info("Simple flow request - only service 2");
     }
 
-    @ApiOperation("Simple async flow request - only service 1")
+    @ApiOperation("Simple async flow request - only service 2")
     @GetMapping("simple/async")
     public void simpleAsyncFlowRequest() {
-        log.info("Simple async flow request - only service 1");
+        log.info("Simple async flow request - only service 2");
         asyncService.asyncLocal();
     }
 
-    @ApiOperation("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)")
-    @GetMapping("service2")
-    public void service2FlowRequest() {
+    @ApiOperation("Micro-Service REST flow request - REST to service 1 (Spring Boot 2)")
+    @GetMapping("service1")
+    public void service1FlowRequest() {
         log.info("Micro-Service REST flow request - REST to service 2 (Spring Boot 2)");
-        service1Service.service2FlowRequest();
+        service1Service.service1FlowRequest();
     }
 
-    @ApiOperation("Micro-Service REST flow async request - REST to service 2 (Spring Boot 2)")
-    @GetMapping("service2/async")
-    public void service2AsyncFlowRequest() {
-        log.info("Micro-Service REST flow async request - REST to service 2 (Spring Boot 2)");
-        asyncService.asyncServer2();
+    @ApiOperation("Micro-Service REST flow async request - REST to service 1 (Spring Boot 2)")
+    @GetMapping("service1/async")
+    public void service1AsyncFlowRequest() {
+        log.info("Micro-Service REST flow async request - REST to service 1 (Spring Boot 2)");
+        asyncService.asyncServer1();
     }
 
     @ApiOperation("Micro-Service REST flow request - REST to service 3 (Spring Boot 1)")

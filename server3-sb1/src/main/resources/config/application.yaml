@@ -16,3 +16,13 @@ logging:
     level: '%5p [${spring.application.name},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}]'
   level:
     root: info
+
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000

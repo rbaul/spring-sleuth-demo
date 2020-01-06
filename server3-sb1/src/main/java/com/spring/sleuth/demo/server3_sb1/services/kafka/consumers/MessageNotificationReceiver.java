@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MessageNotificationReceiver {
 
-    @KafkaListener(containerFactory = KafkaConfig.SOME_MESSAGE_LISTENER, topics = ServerMessagePublisher.$_KAFKA_TOPICS_SERVER_3_SOME_TOPIC)
+    @KafkaListener(containerFactory = KafkaConfig.SOME_MESSAGE_LISTENER, topics = ServerMessagePublisher.$_KAFKA_TOPICS_SOME_TOPIC)
     public void receive(@Payload Object data, @Headers MessageHeaders messageHeaders) {
-        log.info("Message received from KAFKA topic '{}': data '{}', headers '{}'", ServerMessagePublisher.$_KAFKA_TOPICS_SERVER_3_SOME_TOPIC, data, messageHeaders);
+        log.info("Message received from KAFKA topic '{}': data '{}', headers '{}'", ServerMessagePublisher.$_KAFKA_TOPICS_SOME_TOPIC, data, messageHeaders);
     }
 
-//    @KafkaListener(containerFactory = KafkaConfig.SOME_MESSAGE_LISTENER, topics = ServerMessagePublisher.$_KAFKA_TOPICS_SERVER_3_SOME_TOPIC)
+//    @KafkaListener(containerFactory = KafkaConfig.SOME_MESSAGE_LISTENER, topics = ServerMessagePublisher.$_KAFKA_TOPICS_SOME_TOPIC)
 //    public void receive(Object data) {
 //        log.info("Message received from KAFKA topic '{}': data '{}'", ServerMessagePublisher.$_KAFKA_TOPICS_SERVER_3_SOME_TOPIC, data);
 //    }

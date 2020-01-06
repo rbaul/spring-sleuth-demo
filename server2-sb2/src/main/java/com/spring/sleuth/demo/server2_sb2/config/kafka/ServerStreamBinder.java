@@ -8,7 +8,7 @@ import org.springframework.messaging.support.MessageBuilder;
 
 public interface ServerStreamBinder {
 
-    String SOME_TOPIC = "server2-some-topic";
+    String SOME_TOPIC = "some-topic";
 
     @Input(ServerStreamBinder.SOME_TOPIC)
     ExecutorChannel someTopicInput();

@@ -22,7 +22,7 @@ import java.util.UUID;
 public class StreamInterceptor implements ExecutorChannelInterceptor {
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
-        log.info("preSend");
+        log.info("Intercept: add new header");
         MessageHeaderAccessor headers = MessageHeaderAccessor
                 .getMutableAccessor(message);
         Map<String, Object> additionalHeaders = new HashMap<>();

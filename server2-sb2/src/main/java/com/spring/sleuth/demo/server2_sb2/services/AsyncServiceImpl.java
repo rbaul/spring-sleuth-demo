@@ -18,9 +18,9 @@ public class AsyncServiceImpl {
     }
 
     @Async
-    public void asyncServer2() {
-        log.info("Async server 2");
-        service1Service.service2FlowRequest();
+    public void asyncServer1() {
+        log.info("Async server 1");
+        service1Service.service1FlowRequest();
     }
 
     @Async

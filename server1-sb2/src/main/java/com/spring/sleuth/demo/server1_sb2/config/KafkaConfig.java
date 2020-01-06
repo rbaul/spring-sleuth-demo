@@ -2,8 +2,6 @@ package com.spring.sleuth.demo.server1_sb2.config;
 
 import com.spring.sleuth.demo.server1_sb2.config.custom.NewJsonDeserializer;
 import lombok.extern.slf4j.Slf4j;
-import no.sysco.middleware.kafka.interceptor.zipkin.TracingConsumerInterceptor;
-import no.sysco.middleware.kafka.interceptor.zipkin.TracingProducerInterceptor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -46,7 +44,7 @@ public class KafkaConfig extends KafkaBaseConfig {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class); // Default
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
-        interceptorsList.add(TracingProducerInterceptor.class);
+//        interceptorsList.add(TracingProducerInterceptor.class);
         props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
         return props;
     }
@@ -59,7 +57,7 @@ public class KafkaConfig extends KafkaBaseConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, NewJsonDeserializer.class);
         List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
-        interceptorsList.add(TracingConsumerInterceptor.class);
+//        interceptorsList.add(TracingConsumerInterceptor.class);
         props.put(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
         return props;
     }

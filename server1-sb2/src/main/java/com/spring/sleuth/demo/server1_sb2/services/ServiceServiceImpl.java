@@ -13,16 +13,22 @@ public class ServiceServiceImpl {
     
     private final RestTemplateCustom restTemplateCustom;
 
+    private final Server2ClientImpl server2Client;
+
+    private final Server3ClientImpl server3Client;
+
     private final ServerMessagePublisher serverMessagePublisher;
 
     public void service2FlowRequest() {
+        log.info("Message to Server 2");
         restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/service2/simple", Void.class);
-        log.info("Message");
+        server2Client.simpleFlowRequest();
     }
 
     public void service3FlowRequest() {
+        log.info("Message to Server 3");
         restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/service3/simple", Void.class);
-        log.info("Message");
+        server3Client.simpleFlowRequest();
     }
 
     public void serviceKafkaFlowRequest() {

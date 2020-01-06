@@ -1,7 +1,6 @@
 kafka:
   topics:
-     server1:
-       some-topic: "server1-some-topic"
+    some-topic: "some-topic"
 
 spring:
   kafka:
