@@ -27,6 +27,7 @@ dependencies {
 //	compile 'no.sysco.middleware.kafka:kafka-interceptor-zipkin:0.4.2'
 	compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
 
 	// Swagger
 	implementation('io.springfox:springfox-swagger-ui:2.9.2')

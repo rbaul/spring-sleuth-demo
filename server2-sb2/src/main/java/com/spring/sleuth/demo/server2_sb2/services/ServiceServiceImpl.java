@@ -19,12 +19,12 @@ public class ServiceServiceImpl {
 
     public void service1FlowRequest() {
         log.info("Message to Server 1");
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8080/api/service1/simple", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8080/api/simple", Void.class);
     }
 
     public void service3FlowRequest() {
         log.info("Message to Server 3");
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/service1/simple", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8082/api/simple", Void.class);
     }
 
     public void serviceKafkaFlowRequest() {

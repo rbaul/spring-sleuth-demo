@@ -21,13 +21,13 @@ public class ServiceServiceImpl {
 
     public void service1FlowRequest() {
         log.info("Message to Server 1");
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8080/api/service1/simple", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8080/api/simple", Void.class);
         server1Client.simpleFlowRequest();
     }
 
     public void service2FlowRequest() {
         log.info("Message to Server 2");
-        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/service2/simple", Void.class);
+        restTemplateCustom.getRestTemplate().getForEntity("http://localhost:8081/api/simple", Void.class);
         server2Client.simpleFlowRequest();
     }
 
