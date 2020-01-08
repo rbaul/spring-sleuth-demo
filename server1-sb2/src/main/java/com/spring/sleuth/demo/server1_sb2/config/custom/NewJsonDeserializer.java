@@ -2,6 +2,7 @@ package com.spring.sleuth.demo.server1_sb2.config.custom;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
+import org.apache.kafka.common.header.Headers;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 public class NewJsonDeserializer<T> extends JsonDeserializer<T> {
@@ -19,6 +20,16 @@ public class NewJsonDeserializer<T> extends JsonDeserializer<T> {
 
     public NewJsonDeserializer(Class<T> targetType, ObjectMapper objectMapper) {
         super(targetType, objectMapper);
+    }
+
+
+    @Override
+    public T deserialize(String topic, Headers headers, byte[] data) {
+        try {
+            return super.deserialize(topic, headers, data);
+        } catch (SerializationException ex) {
+            return null;
+        }
     }
 
     @Override

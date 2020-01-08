@@ -29,7 +29,7 @@ public class ServiceServiceImpl {
 
     public void serviceKafkaFlowRequest() {
         log.info("Publish to Kafka...");
-        Message<String> message = MessageBuilder.withPayload("String Object from Server 2").build();
+        Message<String> message = MessageBuilder.withPayload("\"String Object from Server 2\"").build();
         serverStreamBinder.someTopicOutput().send(message);
     }
 }

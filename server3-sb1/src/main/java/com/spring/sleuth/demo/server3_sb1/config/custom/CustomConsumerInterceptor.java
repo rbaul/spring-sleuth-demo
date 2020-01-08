@@ -17,7 +17,9 @@ public class CustomConsumerInterceptor<K, V> implements ConsumerInterceptor<K, V
     public ConsumerRecords<K, V> onConsume(ConsumerRecords<K, V> records) {
         Headers headers = records.iterator().next().headers();
         Header customId = headers.lastHeader("customId");
-        log.info("Custom ID {}", new String(customId.value()));
+        if (customId != null) {
+            log.info("Custom ID {}", new String(customId.value()));
+        }
         return records;
     }
 
