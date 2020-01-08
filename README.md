@@ -80,6 +80,10 @@ logging:
 spring.zipkin.enabled: false
 ```
 
+### Spring Documentations
+[Spring Boot 1](https://cloud.spring.io/spring-cloud-static/spring-cloud-sleuth/1.2.2.RELEASE/)
+[Spring Boot 2](https://cloud.spring.io/spring-cloud-sleuth/reference/html/)
+
 ## [Zipkin](https://zipkin.io/)
 > Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures. 
 > Features include both the collection and lookup of this data.
