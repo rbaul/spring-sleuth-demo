@@ -4,10 +4,12 @@ import com.spring.sleuth.demo.server1_sb2.config.custom.CustomRecordInterceptor;
 import com.spring.sleuth.demo.server1_sb2.config.custom.NewJsonDeserializer;
 import lombok.AllArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,11 +34,13 @@ public abstract class KafkaBaseConfig {
         Map<String, Object> consumerConfig = new HashMap<>(consumerConfigs());
         consumerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, appName + "#" + groupName);
         consumerConfig.put(ConsumerConfig.CLIENT_ID_CONFIG, groupName);
+//        consumerConfig.put(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
         return consumerConfig;
     }
 
     protected Map<String, Object> producerConfig() {
         Map<String, Object> producerConfig = new HashMap<>(producerConfigs());
+//        producerConfig.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
         return producerConfig;
     }
 

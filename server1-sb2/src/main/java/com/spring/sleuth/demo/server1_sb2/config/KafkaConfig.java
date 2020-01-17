@@ -43,9 +43,9 @@ public class KafkaConfig extends KafkaBaseConfig {
         Map<String, Object> props = new HashMap<>(kafkaProperties.buildProducerProperties());
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class); // Default
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
+//        List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
 //        interceptorsList.add(TracingProducerInterceptor.class);
-        props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
+//        props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
         return props;
     }
 
@@ -56,9 +56,9 @@ public class KafkaConfig extends KafkaBaseConfig {
         Map<String, Object> props = new HashMap<>(kafkaProperties.buildConsumerProperties());
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, NewJsonDeserializer.class);
-        List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
+//        List<Class<?>> interceptorsList = (List<Class<?>>) props.getOrDefault(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, new ArrayList<>());
 //        interceptorsList.add(TracingConsumerInterceptor.class);
-        props.put(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
+//        props.put(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptorsList);
         return props;
     }
 

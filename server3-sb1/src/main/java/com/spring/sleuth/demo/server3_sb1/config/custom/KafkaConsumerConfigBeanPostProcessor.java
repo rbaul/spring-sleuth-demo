@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
-@Component
+//@Component
 public class KafkaConsumerConfigBeanPostProcessor implements BeanPostProcessor {
 
     public static final String CONSUMER_CONFIGS_BEAN_NAME = "consumerConfigs";

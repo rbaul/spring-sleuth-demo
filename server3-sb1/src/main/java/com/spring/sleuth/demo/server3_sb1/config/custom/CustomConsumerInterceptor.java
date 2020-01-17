@@ -7,6 +7,7 @@ import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.header.Header;
 import org.apache.kafka.common.header.Headers;
+import org.slf4j.MDC;
 
 import java.util.Map;
 
@@ -18,23 +19,26 @@ public class CustomConsumerInterceptor<K, V> implements ConsumerInterceptor<K, V
         Headers headers = records.iterator().next().headers();
         Header customId = headers.lastHeader("customId");
         if (customId != null) {
-            log.info("Custom ID {}", new String(customId.value()));
+            String arg = new String(customId.value());
+            log.info("Custom ID {}", arg);
+            MDC.put("customId", arg);
         }
+
         return records;
     }
 
     @Override
     public void onCommit(Map<TopicPartition, OffsetAndMetadata> offsets) {
-
+        log.info("onCommit");
     }
 
     @Override
     public void close() {
-
+        log.info("close");
     }
 
     @Override
     public void configure(Map<String, ?> configs) {
-
+        log.info("configure");
     }
 }
